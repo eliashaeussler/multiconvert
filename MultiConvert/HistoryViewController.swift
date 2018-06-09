@@ -52,7 +52,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Read data
         do {
-            return (try context.fetch(fetch) as! [History]).sorted(by: { $0.0.date?.compare($0.1.date! as Date) == .orderedDescending })
+            return (try context.fetch(fetch) as! [History]).sorted(by: { $0.date?.compare($1.date! as Date) == .orderedDescending })
         } catch {
             return []
         }

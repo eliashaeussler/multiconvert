@@ -238,7 +238,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         toConvert = nil
         
         // Split user input
-        var input = searchText.characters.split { $0 == " " }.map(String.init)
+        var input = searchText.split { $0 == " " }.map(String.init)
         
         // Check if user typed in number and unit without whitespace in between
         for (i, inp) in input.enumerated()
@@ -467,7 +467,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                     out!.text = String(describing: converted[0].output!)
                 }
             } else {
-                out!.text = sender.text!.characters.count > 0 ? "Error" : ""
+                out!.text = sender.text!.count > 0 ? "Error" : ""
             }
         }
     }
@@ -751,12 +751,12 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         searchBarTextDidBeginEditing(searchBar)
         
         // Show or hide manual view
-        manualView.isHidden = searchText.characters.count > 0
+        manualView.isHidden = searchText.count > 0
         
         // Show or hide cancel button
-        searchBar.setShowsCancelButton(searchText.characters.count > 0, animated: true)
+        searchBar.setShowsCancelButton(searchText.count > 0, animated: true)
         
-        if searchText.characters.count > 0
+        if searchText.count > 0
         {
             // Check if user input contains logical input
             let input = checkQuickConvert(searchText) ?? 1
@@ -805,7 +805,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar)
     {
         // Change nav bar button
-        let navItem: UIBarButtonSystemItem = (searchBar.text?.characters.count)! > 0 ? .add : .done
+        let navItem: UIBarButtonSystemItem = (searchBar.text?.count)! > 0 ? .add : .done
         let button = UIBarButtonItem(barButtonSystemItem: navItem, target: navAddFav.target, action: navAddFav.action)
         navBar.topItem?.rightBarButtonItem = button
         
@@ -813,7 +813,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         navAddFav = button
         
         // User can add conversion to favorites
-        canAdd = (searchBar.text?.characters.count)! > 0
+        canAdd = (searchBar.text?.count)! > 0
     }
     
     /** Return number of sections in UITableView */
@@ -979,7 +979,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     //-- OBSERVER FUNCTIONS
     
     /** Change constraints of UIScrollView and UITableView when keyboard did show */
-    func keyboardDidShow(notification: NSNotification)
+    @objc func keyboardDidShow(notification: NSNotification)
     {
         // Get user info
         let userInfo = notification.userInfo! as NSDictionary
@@ -999,7 +999,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
     
     /** Reset contraints of UIScrollView and UITableView after keyboard did hide */
-    func keyboardWillHide(notification: NSNotification)
+    @objc func keyboardWillHide(notification: NSNotification)
     {
         // Reset insets
         scrollView.contentInset = UIEdgeInsets.zero
