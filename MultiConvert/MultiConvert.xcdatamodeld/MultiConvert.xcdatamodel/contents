@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CurrencyRate" representedClassName="CurrencyRate" syncable="YES" codeGenerationType="class">
+        <attribute name="currency" attributeType="String" syncable="YES"/>
+        <attribute name="rate" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="CurrencySettings" representedClassName="CurrencySettings" syncable="YES" codeGenerationType="class">
+        <attribute name="base" attributeType="String" syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="inputUnit" attributeType="String" syncable="YES"/>
+        <attribute name="outputUnit" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="input" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="inputUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outputUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CurrencyRate" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="CurrencySettings" positionX="-54" positionY="9" width="128" height="73"/>
+        <element name="Favorite" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="History" positionX="-54" positionY="18" width="128" height="120"/>
+    </elements>
+</model>
