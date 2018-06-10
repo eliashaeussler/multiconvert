@@ -89,26 +89,28 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         hideLoad(animated: false, completion:
         {
             // Instantiate activity indicator view
-            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-            indicator.isUserInteractionEnabled = false
-            indicator.startAnimating()
-            
-            // Instantiate alert controller
-            self.alert = self.alert(title: "Updating exchange rates...", message: "Please wait a moment.", actions: nil, show: false)
-            
-            // Instantiate view controller
-            let customVC = UIViewController()
-            customVC.view.addSubview(indicator)
-            
-            // Set constraints
-            customVC.view.addConstraint(NSLayoutConstraint(item: indicator, attribute: .centerX, relatedBy: .equal, toItem: customVC.view, attribute: .centerX, multiplier: 1, constant: 0))
-            customVC.view.addConstraint(NSLayoutConstraint(item: indicator, attribute: .centerY, relatedBy: .equal, toItem: customVC.view, attribute: .centerY, multiplier: 1, constant: 0))
-            
-            // Set view controller for alert controller
-            self.alert?.setValue(customVC, forKey: "contentViewController")
-            
-            // Show alert controller
-            self.present(self.alert!, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                let indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                indicator.isUserInteractionEnabled = false
+                indicator.startAnimating()
+                
+                // Instantiate alert controller
+                self.alert = self.alert(title: "Updating exchange rates...", message: "Please wait a moment.", actions: nil, show: false)
+                
+                // Instantiate view controller
+                let customVC = UIViewController()
+                customVC.view.addSubview(indicator)
+                
+                // Set constraints
+                customVC.view.addConstraint(NSLayoutConstraint(item: indicator, attribute: .centerX, relatedBy: .equal, toItem: customVC.view, attribute: .centerX, multiplier: 1, constant: 0))
+                customVC.view.addConstraint(NSLayoutConstraint(item: indicator, attribute: .centerY, relatedBy: .equal, toItem: customVC.view, attribute: .centerY, multiplier: 1, constant: 0))
+                
+                // Set view controller for alert controller
+                self.alert?.setValue(customVC, forKey: "contentViewController")
+                
+                // Show alert controller
+                self.present(self.alert!, animated: true, completion: nil)
+            }
         })
     }
     
