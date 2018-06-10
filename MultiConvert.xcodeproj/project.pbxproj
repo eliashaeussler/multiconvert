@@ -13,6 +13,7 @@
 		6401804C1E683CE10047A498 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6401804A1E683CE10047A498 /* LaunchScreen.storyboard */; };
 		640180701E683CF00047A498 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6401806F1E683CF00047A498 /* Currency.swift */; };
 		640A94C41E8554E80047088C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640A94C31E8554E80047088C /* HistoryViewController.swift */; };
+		64579EFE20CD83C600ABE660 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64579EFC20CD83C500ABE660 /* Config.plist */; };
 		646F8C091E7C3817003DEE7D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646F8C081E7C3817003DEE7D /* FavoritesViewController.swift */; };
 		646F8C0F1E7D66F8003DEE7D /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646F8C0E1E7D66F8003DEE7D /* Converter.swift */; };
 		646F8C131E7D69F1003DEE7D /* MCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646F8C121E7D69F1003DEE7D /* MCError.swift */; };
@@ -40,6 +41,7 @@
 		6401804D1E683CE10047A498 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6401806F1E683CF00047A498 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		640A94C31E8554E80047088C /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		64579EFC20CD83C500ABE660 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		646F8C021E7ACA2F003DEE7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		646F8C081E7C3817003DEE7D /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		646F8C0E1E7D66F8003DEE7D /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				6401804A1E683CE10047A498 /* LaunchScreen.storyboard */,
 				646F8C2B1E7DAF6B003DEE7D /* Assets.xcassets */,
 				6401804D1E683CE10047A498 /* Info.plist */,
+				64579EFC20CD83C500ABE660 /* Config.plist */,
 				640180451E683CE10047A498 /* MultiConvert.xcdatamodeld */,
 			);
 			path = MultiConvert;
@@ -229,6 +232,7 @@
 			files = (
 				6401804C1E683CE10047A498 /* LaunchScreen.storyboard in Resources */,
 				646F8C2C1E7DAF6B003DEE7D /* Assets.xcassets in Resources */,
+				64579EFE20CD83C600ABE660 /* Config.plist in Resources */,
 				640180441E683CE10047A498 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

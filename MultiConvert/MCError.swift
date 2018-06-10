@@ -10,6 +10,7 @@ enum MCError: Error
 {
     case noConnection
     case noData
+    case missingApiKey
     
     case noCompatibleQuantity
     case noCompatibleInputUnit

@@ -14,19 +14,16 @@ class Currency: NSObject, QuantityProtocol {
     //-- CONSTANTS
     
     /** API url to catch latest currencies */
-    static let API_URL = "https://api.fixer.io/latest"
+    static let API_URL = "https://openexchangerates.org/api/latest.json?app_id="
     
     /** API keys for section rates */
     static let API_KEY_RATES = "rates"
     
     /** API keys for section date */
-    static let API_KEY_DATE = "date"
+    static let API_KEY_TIMESTAMP = "timestamp"
     
     /** API keys for section base */
     static let API_KEY_BASE = "base"
-    
-    /** API update date format */
-    static let API_DATE_FORMAT = "yyyy-MM-dd"
     
     /** UI elements */
     static let placeholder = "45.99"
@@ -47,13 +44,31 @@ class Currency: NSObject, QuantityProtocol {
     
     //-- FUNCTIONS
     
-    /** Get latest exchange rates from fixer API and save them into CoreData */
+    static func getApiUrl() throws -> String
+    {
+        if let configPath = Bundle.main.path(forResource: "Config", ofType: "plist") {
+            if let config = NSDictionary(contentsOfFile: configPath) {
+                if let apiKey = config["API_KEY"] as? String {
+                    if apiKey.trimmingCharacters(in: [" "]).count > 0 {
+                        return API_URL + apiKey
+                    }
+                }
+            }
+        }
+        
+        throw MCError.missingApiKey
+    }
+    
+    /** Get latest exchange rates from openexchangerates API and save them into CoreData */
     static func update() throws -> Date?
     {
+        // Define API url
+        let apiUrl = try getApiUrl()
+        
         do
         {
             // Read json data
-            try jsonData = Data(contentsOf: URL(string: API_URL)!)
+            try jsonData = Data(contentsOf: URL(string: apiUrl)!)
             
             // Convert json data
             guard let json = try? JSONSerialization.jsonObject(with: jsonData!, options: []) else {
@@ -67,12 +82,8 @@ class Currency: NSObject, QuantityProtocol {
                 units = []
                 
                 // Update date
-                if let jsonDate = jsonResult[API_KEY_DATE] as? String
-                {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = API_DATE_FORMAT
-                    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-                    date = dateFormatter.date(from: jsonDate)
+                if let jsonDate = jsonResult[API_KEY_TIMESTAMP] as? Double {
+                    date = Date(timeIntervalSince1970: jsonDate)
                 }
                 
                 // Base currency

@@ -178,6 +178,11 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                     // No error
                     error = nil
                     
+                } catch MCError.missingApiKey {
+                    
+                    // Error: No API key provided
+                    error = .missingApiKey
+                    
                 } catch MCError.noConnection {
                     
                     // Error: No connection
@@ -209,6 +214,11 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                 {
                     switch error!
                     {
+                        // No API key provided
+                        case .missingApiKey:
+                            _ = self.alert(title: "Update failed \u{1F631}", message: "Please provide a valid API key.", actions: [action], show: true)
+                            break
+                        
                         // No connection
                         case .noConnection:
                             _ = self.alert(title: "Update failed \u{1F631}", message: "Please check your internet connection.", actions: [action], show: true)
