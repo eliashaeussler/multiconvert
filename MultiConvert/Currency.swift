@@ -161,7 +161,7 @@ class Currency: NSObject, QuantityProtocol {
         // Save base and settings
         let settings = CurrencySettings(context: context)
         settings.base = try? Quantities.getBase(forQuantity: Quantity.Currency).key
-        settings.date = date as NSDate?
+        settings.date = date
         
         // Save to Core Data
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

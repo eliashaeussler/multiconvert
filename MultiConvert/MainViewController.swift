@@ -367,7 +367,7 @@ class MainViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                                 {
                                     // Save conversion
                                     let conversion = History(context: context)
-                                    conversion.date = NSDate()
+                                    conversion.date = Date()
                                     conversion.input = input
                                     conversion.inputUnit = base?.key
                                     conversion.outputUnit = unit.key
