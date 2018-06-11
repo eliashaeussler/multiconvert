@@ -2,7 +2,7 @@
 [![release](https://img.shields.io/github/release/eliashaeussler/multiconvert.svg)](https://github.com/eliashaeussler/multiconvert/releases/)
 
 
-# MultiConvert
+# <img src="assets/app-icon-rounded.png" height="23"> MultiConvert
 
 A conversion app for iOS which supports the conversion of multiple quantities such as area, currency, length, speed, time
 and weight. For currency conversion, the API of [open exchange rates](https://openexchangerates.org/) is used to provide
