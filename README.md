@@ -10,6 +10,8 @@ current exchange rates.
 
 **Note that this app is not available in the App Store.**
 
+![MultiConvert](assets/mockup.jpg)
+
 
 ## Requirements
 
