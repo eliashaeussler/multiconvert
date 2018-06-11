@@ -1,5 +1,6 @@
 ## Project specific
 /MultiConvert/Config.plist
+/assets
 
 ## Build generated
 build/
